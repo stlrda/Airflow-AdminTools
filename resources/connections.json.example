@@ -1,0 +1,23 @@
+[
+    {
+        "Conn Id": "",
+        "Conn Type": "S3",
+        "Host": "",
+        "Schema": "",
+        "Login": "",
+        "Password": "",
+        "Port": "",
+        "Extra": {"aws_access_key_id":"", "aws_secret_access_key": ""}
+    },
+
+    {
+        "Conn Id": "",
+        "Conn Type": "",
+        "Host": "",
+        "Schema": "",
+        "Login": "",
+        "Password": "",
+        "Port": "",
+        "Extra": ""
+    }
+]
