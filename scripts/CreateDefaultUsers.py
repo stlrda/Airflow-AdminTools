@@ -4,9 +4,9 @@ import json
 
 def create_users():
     #Open JSON File which contains details for default users that need to be created and put it in a variable
-    f = open('DefaultUsers.json')
+    f = open('resources/DefaultUsers.json')
     data = json.load(f)
-
+    
     #loop through each user's credentials and build a create user command from all present criteria
     for i in data['DefaultUsers']:
         createUser = 'airflow create_user'

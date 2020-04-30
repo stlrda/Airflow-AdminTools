@@ -1,3 +1,6 @@
+#ignore the json with default user credentials in it
+DefaultUsers.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
