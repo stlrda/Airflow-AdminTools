@@ -1,3 +1,7 @@
+
+# Config files
+connections.json
+=======
 #ignore the json with default user credentials in it
 DefaultUsers.json
 
