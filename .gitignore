@@ -1,5 +1,9 @@
+
 # Config files
 connections.json
+=======
+#ignore the json with default user credentials in it
+DefaultUsers.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
