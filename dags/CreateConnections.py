@@ -8,7 +8,7 @@ from airflow.operators.python_operator import PythonOperator
 
 # Custom
 sys.path.append(".")
-from dags.admintools.scripts.create_connections import create_connections
+from admintools.scripts.create_connections import create_connections
 
 
 
