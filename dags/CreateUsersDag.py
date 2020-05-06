@@ -10,7 +10,7 @@ from airflow.operators.bash_operator import BashOperator
 
 #python function
 sys.path.append('.') # Make sure there is an __init__.py file in this folder
-from dags.admintools.scripts.create_default_users import create_users
+from admintools.scripts.create_default_users import create_users
 
 # Call me with a python operator to figure out where airflow is running from.
 # def WhereAmI():
