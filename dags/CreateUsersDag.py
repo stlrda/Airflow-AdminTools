@@ -9,8 +9,8 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
 
 #python function
-sys.path.append('./scripts') # Make sure there is an __init__.py file in this folder
-from CreateDefaultUsers import create_users
+sys.path.append('/usr/local/airflow') # Make sure there is an __init__.py file in this folder
+from admintools.scripts.CreateDefaultUsers import create_users
 
 # Call me with a python operator to figure out where airflow is running from.
 # def WhereAmI():

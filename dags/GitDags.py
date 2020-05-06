@@ -9,8 +9,7 @@ from airflow.operators.python_operator import PythonOperator
 
 # Custom
 sys.path.append("/usr/local/airflow")
-from admintools.scripts.create_connections import create_connections
-
+from admintools.scripts.clone_and_link import main
 
 default_args = {
     'owner': 'admin-tools',
@@ -21,13 +20,12 @@ default_args = {
 }
 
 
-with DAG('CreateConnections',
+with DAG('UpdateDAGS',
          default_args=default_args,
          schedule_interval='@once',
          ) as dag:
 
-    create_connections = PythonOperator(task_id='create_connections',
-                    python_callable=create_connections)
+    clone_and_link = PythonOperator(task_id='CloneDAGsThenSymLink',
+                    python_callable=main)
 
-
-create_connections
+clone_and_link
