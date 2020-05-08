@@ -1,7 +1,7 @@
 # Standard Library
 import os
 import sys
-from datetime import datetime
+import datetime as dt
 
 # Third Party
 from airflow import DAG
@@ -9,8 +9,10 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
 
 #python function
+
 sys.path.append('/usr/local/airflow') # Make sure there is an __init__.py file in this folder
 from admintools.scripts.CreateDefaultUsers import create_users
+
 
 # Call me with a python operator to figure out where airflow is running from.
 # def WhereAmI():
@@ -18,18 +20,19 @@ from admintools.scripts.CreateDefaultUsers import create_users
 
 #declare default args
 default_args = {
-    "owner": "airflow",
-    "start_date": datetime(2020, 4, 15, 3, 00, 00),
-    "concurrency": 1,
-    "retries": 3,
+    'owner': 'AdminTools',
+    'start_date': dt.datetime.now(),
+    'concurrency': 1,
+    'retries': 0,
+    'catchup': False
 }
 
 #instantiate dag
 dag = DAG(
-    "create_default_users",
+    "CreateDefaultUsers",
     default_args=default_args,
     description = 'Creates the default users for airflow',
-    schedule_interval = None,
+    schedule_interval = '@once',
 )
 
 #create python operator
@@ -39,4 +42,5 @@ CreateDefaultUsers = PythonOperator(
     dag=dag,
 )
 
+#Run Tasks
 CreateDefaultUsers

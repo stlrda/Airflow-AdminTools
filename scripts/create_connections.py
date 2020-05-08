@@ -9,7 +9,7 @@ from airflow.models import Connection
 
 
 def create_connections():
-    """Will create an Airflow connection for each json in the 'resources/connections.json' file.
+    """Will create an Airflow connection for each json in the 'dags/admintools/resources/connections.json' file.
     This function will overwrite the connection if it already exists.
     """
     with open('dags/admintools/resources/connections.json', 'r') as f:

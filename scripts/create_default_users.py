@@ -4,7 +4,7 @@ import json
 
 def create_users():
     #Open JSON File which contains details for default users that need to be created and put it in a variable
-    with open('resources/DefaultUsers.json', 'r') as f:
+    with open('dags/admintools/resources/defaultUsers.json', 'r') as f:
         data = json.load(f)
         
         #loop through each user's credentials and build a create user command from all present criteria
