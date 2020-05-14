@@ -12,7 +12,7 @@ sys.path.append("/usr/local/airflow")
 from admintools.scripts.clone_and_link import main
 
 default_args = {
-    'owner': 'admin-tools',
+    'owner': 'admintools',
     'start_date': dt.datetime.now(),
     'concurrency': 1,
     'retries': 0,
@@ -20,12 +20,12 @@ default_args = {
 }
 
 
-with DAG('UpdateDAGS',
+with DAG('ImportDAGS',
          default_args=default_args,
          schedule_interval='@once',
          ) as dag:
 
-    clone_and_link = PythonOperator(task_id='CloneDAGsThenSymLink',
+    clone_and_link = PythonOperator(task_id='clone_and_link',
                     python_callable=main)
 
 clone_and_link
