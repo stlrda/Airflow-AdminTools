@@ -23,7 +23,7 @@ default_args = {
 
 with DAG('CreateConnections',
          default_args=default_args,
-         schedule_interval='@once',
+         schedule_interval= '@once',
          ) as dag:
 
     create_connections = PythonOperator(task_id='create_connections',
