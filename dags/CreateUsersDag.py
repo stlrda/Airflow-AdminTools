@@ -9,8 +9,7 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
 
 #python function
-
-sys.path.append('/usr/local/airflow') # Make sure there is an __init__.py file in this folder
+sys.path.append('/usr/local/airflow')
 from admintools.scripts.CreateDefaultUsers import create_users
 
 
@@ -20,11 +19,10 @@ from admintools.scripts.CreateDefaultUsers import create_users
 
 #declare default args
 default_args = {
-    'owner': 'AdminTools',
-    'start_date': dt.datetime.now(),
-    'concurrency': 1,
-    'retries': 0,
-    'catchup': False
+    "owner": "admintools",
+    "start_date": datetime(2020, 4, 15, 3, 00, 00),
+    "concurrency": 1,
+    "retries": 3,
 }
 
 #instantiate dag

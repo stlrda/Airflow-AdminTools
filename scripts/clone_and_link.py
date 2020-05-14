@@ -6,7 +6,9 @@ def main():
     """Clones every repo listed in "projects.csv" into 'efs' folder then creates a symbolic link
     in airflow/dags.
     """
-    PROJECTS_CSV = "/usr/local/airflow/dags/admintools/resources/projects.csv" # Prepend "../" if executing outside Airflow container. 
+
+    # Should refer to raw file found in master branch for prod.
+    PROJECTS_CSV = "https://raw.githubusercontent.com/stlrda/Airflow-AdminTools/master/resources/projects.csv"
     PROJECTS_DATAFRAME = pd.read_csv(PROJECTS_CSV)
 
     for index, row in PROJECTS_DATAFRAME.iterrows():
@@ -15,8 +17,8 @@ def main():
         repo = row["Repo"]
         url = row["URL"]
 
-        project_folder = f"/efs/{repo}"
-        symlink = f"/usr/local/airflow/dags/{repo}"
+        project_folder = f"/efs/{project}"
+        symlink = f"/usr/local/airflow/dags/{project}"
 
         try:
             print(f"Deleting project folder: {project_folder}") # efs object
@@ -26,7 +28,7 @@ def main():
             print(err)
 
         try:
-            print(f"Deleting symbolic link: {symlink}") #sym link
+            print(f"Deleting symbolic link: {symlink}")
             os.system(f"rm -rf {symlink}")
             print(f"Symbolic link: '{symlink}' removed.")
         except Exception as err:
@@ -37,11 +39,11 @@ def main():
         try:
             check_call(["git", "clone", f"{url}.git", project_folder])
         except CalledProcessError as pe:
-            print("CalledProcessError : " + pe.output)
+            print("CalledProcessError : " + str(pe))
 
         try:
             print(f"Linking {project_folder} to {symlink}")
             check_call(["ln", "-s", project_folder, symlink])
         except CalledProcessError as pe:
-            print("CalledProcessError : " + pe.output)
+            print("CalledProcessError : " + str(pe))
 

@@ -13,8 +13,7 @@ from admintools.scripts.create_connections import create_connections
 
 
 default_args = {
-    'owner': 'admin-tools',
-
+    'owner': 'admintools',
     'start_date': dt.datetime.now(),
     'concurrency': 1,
     'retries': 0,
