@@ -31,6 +31,3 @@ with DAG('CreateConnections',
 
 
 create_connections
-
-
-# Testing the cron job
