@@ -30,6 +30,8 @@ with DAG('InstallDependenciesProd',
 
     install_mdbtools = BashOperator(task_id='install_mdbtools', bash_command="apt-get install mdbtools -y")
 
+    install_pandas = BashOperator(task_id="install_pandas", bash_command="pip3 install pandas")
+
     install_python_deps = PythonOperator(task_id="install_python_deps", python_callable=main)
 
-update >> install_mdbtools >> install_python_deps
+update >> install_mdbtools >> install_pandas >> install_python_deps

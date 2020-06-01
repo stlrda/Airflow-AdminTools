@@ -10,7 +10,7 @@ from airflow.operators.bash_operator import BashOperator
 
 #python function
 sys.path.append('/usr/local/airflow')
-from admintools.scripts.CreateDefaultUsers import create_users
+from admintools.scripts.create_default_users import create_users
 
 
 # Call me with a python operator to figure out where airflow is running from.
@@ -20,7 +20,7 @@ from admintools.scripts.CreateDefaultUsers import create_users
 #declare default args
 default_args = {
     "owner": "admintools",
-    "start_date": datetime(2020, 4, 15, 3, 00, 00),
+    "start_date": dt.datetime(2020, 4, 15, 3, 00, 00),
     "concurrency": 1,
     "retries": 3,
 }
