@@ -17,7 +17,7 @@ def main():
 
             try:
                 # Installs all packages listed in requirements.txt file.
-                check_call(["pip", "install", "-r", f"{project}/requirements.txt"])
+                check_call(["pip3", "install", "-r", f"{project}/requirements.txt"])
 
                 # Opens requirements.txt to print packages that were successfully installed.
                 with open(f'{project}/requirements.txt', "r") as txt:
