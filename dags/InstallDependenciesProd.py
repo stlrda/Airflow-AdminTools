@@ -13,7 +13,7 @@ from admintools.scripts.install_python_deps import main
 
 default_args = {
     'owner': 'admintools',
-    'start_date': dt.datetime.now(),
+    'start_date': dt.datetime(1993, 4, 16, 3, 00, 00),
     'concurrency': 1,
     'retries': 0,
     'catchup': False
