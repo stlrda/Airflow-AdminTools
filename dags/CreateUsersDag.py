@@ -20,7 +20,7 @@ from admintools.scripts.create_default_users import create_users
 #declare default args
 default_args = {
     "owner": "admintools",
-    "start_date": dt.datetime(2020, 4, 15, 3, 00, 00),
+    "start_date": dt.datetime(2020, 5, 28, 3, 00, 00),
     "concurrency": 1,
     "retries": 3,
 }
