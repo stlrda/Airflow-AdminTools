@@ -8,7 +8,7 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 
 # Custom
-sys.path.append("/usr/local/airflow")
+sys.path.append("/usr/local/airflow/dags/efs")
 from admintools.scripts.create_connections import create_connections
 
 

@@ -9,7 +9,7 @@ from airflow.operators.python_operator import PythonOperator
 from airflow.operators.bash_operator import BashOperator
 
 #python function
-sys.path.append('/usr/local/airflow')
+sys.path.append("/usr/local/airflow/dags/efs")
 from admintools.scripts.create_default_users import create_users
 
 

@@ -8,7 +8,7 @@ from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
 
 # Custom
-sys.path.append('/usr/local/airflow')
+sys.path.append("/usr/local/airflow/dags/efs")
 from admintools.scripts.install_python_deps import main
 
 default_args = {
