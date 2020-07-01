@@ -12,7 +12,7 @@ def create_connections():
     """Will create an Airflow connection for each json in the 'dags/admintools/resources/connections.json' file.
     This function will overwrite the connection if it already exists.
     """
-    with open('dags/admintools/resources/connections.json', 'r') as f:
+    with open('/usr/local/airflow/dags/efs/admintools/resources/connections.json', 'r') as f:
         json_objects_array = json.load(f)
 
     session = settings.Session() # get the session

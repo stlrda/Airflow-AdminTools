@@ -17,22 +17,6 @@ def main():
         url = row["URL"]
 
         project_folder = f"/usr/local/airflow/dags/efs/{project}"
-        # symlink = f"/usr/local/airflow/dags/efs/{project}"
-
-        # try:
-        #     print(f"Deleting project folder: {project_folder}") # efs object
-        #     os.system(f"rm -rf {project_folder}")
-        #     print(f"Project folder: '{project_folder}' removed.")
-        # except Exception as err:
-        #     print(err)
-        #
-        # try:
-        #     print(f"Deleting symbolic link: {symlink}")
-        #     os.system(f"rm -rf {symlink}")
-        #     print(f"Symbolic link: '{symlink}' removed.")
-        # except Exception as err:
-        #     print(err)
-
 
         print(f"Cloning {project} : {repo} @ {url}")
         try:
@@ -45,9 +29,4 @@ def main():
             check_call(["git", "pull", f"{url}.git"])
         except CalledProcessError as pe:
             print("CalledProcessError : " + str(pe))
-        # try:
-        #     print(f"Linking {project_folder} to {symlink}")
-        #     check_call(["ln", "-s", project_folder, symlink])
-        # except CalledProcessError as pe:
-        #     print("CalledProcessError : " + str(pe))
-
+        

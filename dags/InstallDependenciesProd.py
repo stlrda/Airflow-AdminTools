@@ -24,14 +24,20 @@ with DAG('InstallDependenciesProd',
          schedule_interval='@once',
          ) as dag:
 
-    update = BashOperator(task_id='update', bash_command="apt-get update")
+# Probably Bad Practice to Install System Level Dependencies within Airflow DAGs
+# Also produces a recurring error due to insufficient permissions. Adding sudo is both dangerous and not straightforward.
+# This is now moved to the Container Build Process
+
+    # update = BashOperator(task_id='update', bash_command="apt-get update")
 
     # install_git = BashOperator(task_id='install_git', bash_command="apt install -y git")
 
-    install_mdbtools = BashOperator(task_id='install_mdbtools', bash_command="apt-get install mdbtools -y")
+    # install_mdbtools = BashOperator(task_id='install_mdbtools', bash_command="apt-get install mdbtools -y")
 
     install_pandas = BashOperator(task_id="install_pandas", bash_command="pip3 install pandas")
 
     install_python_deps = PythonOperator(task_id="install_python_deps", python_callable=main)
 
-update >> install_mdbtools >> install_pandas >> install_python_deps
+    # update >> install_mdbtools >> install_pandas >> install_python_deps
+
+    install_pandas >> install_python_deps

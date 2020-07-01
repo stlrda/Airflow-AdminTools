@@ -7,20 +7,20 @@ def main():
     """
 
     # Returns list of all folders / files in "efs" directory.
-    projects = os.listdir("/efs/")
+    projects = os.listdir("/usr/local/airflow/dags/efs/")
 
     print(f'Projects in efs {projects}')
 
     for project in projects:
 
-            project = "/efs/" + project
+            project_dir = "/usr/local/airflow/dags/efs/" + project
 
             try:
                 # Installs all packages listed in requirements.txt file.
                 check_call(["pip3", "install", "-r", f"{project}/requirements.txt"])
 
                 # Opens requirements.txt to print packages that were successfully installed.
-                with open(f'{project}/requirements.txt', "r") as txt:
+                with open(f'{project_dir}/requirements.txt', "r") as txt:
                     requirements = ''
                     for line in txt:
                         requirements += line
