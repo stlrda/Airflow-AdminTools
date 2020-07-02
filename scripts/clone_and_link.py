@@ -7,7 +7,7 @@ def main():
     """
 
     # Should refer to raw file found in master branch for prod.
-    PROJECTS_CSV = "https://raw.githubusercontent.com/stlrda/Airflow-AdminTools/master/resources/projects.csv"
+    PROJECTS_CSV = "/usr/local/airflow/dags/efs/admintools/resources/projects.csv"
     PROJECTS_DATAFRAME = pd.read_csv(PROJECTS_CSV)
 
     for index, row in PROJECTS_DATAFRAME.iterrows():
